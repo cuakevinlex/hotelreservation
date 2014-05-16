@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>
+List of reservations
+</title>
+</head>
+<body>
+<h1>List of Reservations</h1>
+<table class = "table">
+	<thead>
+		<tr>
+			<td>E-mail</td>
+			<td>Room Number</td>
+			<td>Number of People</td>
+			<td>Start Date</td>
+			<td>End Date</td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @latest_reservations.each do |latest_reservation| %>
+		<tr>
+			<td><%= latest_reservation.email %></td>
+			<td><%= latest_reservation.room_number %></td>
+			<td><%= latest_reservation.number_of_people %></td>
+			<td><%= latest_reservation.start_date %></td>
+			<td><%= latest_reservation.end_date %></td>
+			<td><%= link_to latest_reservation.first_name, latest_reservation %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+	<%= link_to 'Create New Reservation', new_reservation_path %>
+</body>
+</html>
